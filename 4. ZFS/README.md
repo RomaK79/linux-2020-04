@@ -1,5 +1,6 @@
 # ZFS 
 ## 1. Определить алгоритм с наилучшим сжатием
+
 ### Создаём пул устройств хранения данных ZFS
 ```
 [vagrant@lvm ~]$ sudo zpool create storage mirror sdb sdc
@@ -58,7 +59,7 @@ storage/compressed05    compression    lz4       local
 storage/compressed05    compressratio  1.00x     -
 
 ```
-### 
+### Загрузим текстовый файл 
 ```
 [root@lvm compressed01]# wget -O War_and_Peace.txt http://www.gutenberg.org/ebooks/2600.txt.utf-8
 [root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed02
@@ -66,7 +67,7 @@ storage/compressed05    compressratio  1.00x     -
 [root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed04
 [root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed05
 ```
-### 
+### Проверяем уровень сжатия для разных алгоритмов
 ```
 [root@lvm compressed01]# zfs get compression,compressratio
 NAME                    PROPERTY       VALUE     SOURCE
@@ -84,3 +85,5 @@ storage/compressed05    compression    lz4       local
 storage/compressed05    compressratio  1.08x     -
 
 ```
+## 2. Определить настройки pool’a
+
