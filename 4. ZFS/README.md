@@ -58,3 +58,29 @@ storage/compressed05    compression    lz4       local
 storage/compressed05    compressratio  1.00x     -
 
 ```
+### 
+```
+[root@lvm compressed01]# wget -O War_and_Peace.txt http://www.gutenberg.org/ebooks/2600.txt.utf-8
+[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed02
+[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed03
+[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed04
+[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed05
+```
+### 
+```
+[root@lvm compressed01]# zfs get compression,compressratio
+NAME                    PROPERTY       VALUE     SOURCE
+storage                 compression    off       default
+storage                 compressratio  1.07x     -
+storage/compressed01    compression    lzjb      local
+storage/compressed01    compressratio  1.07x     -
+storage/compressed02    compression    gzip      local
+storage/compressed02    compressratio  1.08x     -
+storage/compressed03    compression    gzip-9    local
+storage/compressed03    compressratio  1.08x     -
+storage/compressed04    compression    zle       local
+storage/compressed04    compressratio  1.08x     -
+storage/compressed05    compression    lz4       local
+storage/compressed05    compressratio  1.08x     -
+
+```
