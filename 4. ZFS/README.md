@@ -62,10 +62,10 @@ storage/compressed05    compressratio  1.00x     -
 ### Загрузим текстовый файл 
 ```
 [root@lvm compressed01]# wget -O War_and_Peace.txt http://www.gutenberg.org/ebooks/2600.txt.utf-8
-[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed02
-[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed03
-[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed04
-[root@lvm storage]# cp /storage/src/compressed/War_and_Peace.txt compressed05
+[root@lvm compressed01]# cp War_and_Peace.txt ../compressed02
+[root@lvm compressed01]# cp War_and_Peace.txt ../compressed03
+[root@lvm compressed01]# cp War_and_Peace.txt ../compressed04
+[root@lvm compressed01]# cp War_and_Peace.txt ../compressed05
 ```
 ### Проверяем уровень сжатия для разных алгоритмов
 ```
