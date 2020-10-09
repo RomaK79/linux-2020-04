@@ -1,6 +1,6 @@
 # ZFS 
 ## 1. Определить алгоритм с наилучшим сжатием
-### Создание пула устройств хранения данных ZFS
+### Создаём пул устройств хранения данных ZFS
 ```
 [vagrant@lvm ~]$ sudo zpool create storage mirror sdb sdc
 [vagrant@lvm ~]$ sudo zpool add storage cache sdd sde
@@ -26,4 +26,13 @@ config:
 
 errors: No known data errors
 ```
+### Создаём файловые системы 
+```
+[root@lvm compressed]# zfs create storage/compressed01
+[root@lvm compressed]# zfs create storage/compressed02
+[root@lvm compressed]# zfs create storage/compressed03
+[root@lvm compressed]# zfs create storage/compressed04
+[root@lvm compressed]# zfs create storage/compressed05
 
+```
+### 
