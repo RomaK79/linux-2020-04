@@ -35,4 +35,26 @@ errors: No known data errors
 [root@lvm compressed]# zfs create storage/compressed05
 
 ```
-### 
+### Установим для каждой ФС свой алгоритм сжатия
+```
+[root@lvm compressed]# zfs set compression=lzjb storage/compressed01
+[root@lvm compressed]# zfs set compression=gzip storage/compressed02
+[root@lvm compressed]# zfs set compression=gzip-9 storage/compressed03
+[root@lvm compressed]# zfs set compression=zle storage/compressed04
+[root@lvm compressed]# zfs set compression=lz4 storage/compressed05
+[root@lvm compressed]# zfs get compression,compressratio
+NAME                    PROPERTY       VALUE     SOURCE
+storage                 compression    off       default
+storage                 compressratio  1.06x     -
+storage/compressed01    compression    lzjb      local
+storage/compressed01    compressratio  1.00x     -
+storage/compressed02    compression    gzip      local
+storage/compressed02    compressratio  1.00x     -
+storage/compressed03    compression    gzip-9    local
+storage/compressed03    compressratio  1.00x     -
+storage/compressed04    compression    zle       local
+storage/compressed04    compressratio  1.00x     -
+storage/compressed05    compression    lz4       local
+storage/compressed05    compressratio  1.00x     -
+
+```
