@@ -2,7 +2,7 @@
 ## 1. Определить алгоритм с наилучшим сжатием
 
 ### Создаём пул устройств хранения данных ZFS
-```
+```bash
 [vagrant@lvm ~]$ sudo zpool create storage mirror sdb sdc
 [vagrant@lvm ~]$ sudo zpool add storage cache sdd sde
 [vagrant@lvm ~]$ sudo zpool add storage log mirror sdf sdg
@@ -28,7 +28,7 @@ config:
 errors: No known data errors
 ```
 ### Создаём файловые системы 
-```
+```bash
 [root@lvm compressed]# zfs create storage/compressed01
 [root@lvm compressed]# zfs create storage/compressed02
 [root@lvm compressed]# zfs create storage/compressed03
@@ -37,7 +37,7 @@ errors: No known data errors
 
 ```
 ### Установим для каждой ФС свой алгоритм сжатия
-```
+```bash
 [root@lvm compressed]# zfs set compression=lzjb storage/compressed01
 [root@lvm compressed]# zfs set compression=gzip storage/compressed02
 [root@lvm compressed]# zfs set compression=gzip-9 storage/compressed03
@@ -60,7 +60,7 @@ storage/compressed05    compressratio  1.00x     -
 
 ```
 ### Загрузим текстовый файл 
-```
+```bash
 [root@lvm compressed01]# wget -O War_and_Peace.txt http://www.gutenberg.org/ebooks/2600.txt.utf-8
 [root@lvm compressed01]# cp War_and_Peace.txt ../compressed02
 [root@lvm compressed01]# cp War_and_Peace.txt ../compressed03
@@ -68,7 +68,7 @@ storage/compressed05    compressratio  1.00x     -
 [root@lvm compressed01]# cp War_and_Peace.txt ../compressed05
 ```
 ### Проверяем уровень сжатия для разных алгоритмов
-```
+```bash
 [root@lvm compressed01]# zfs get compression,compressratio
 NAME                    PROPERTY       VALUE     SOURCE
 storage                 compression    off       default
