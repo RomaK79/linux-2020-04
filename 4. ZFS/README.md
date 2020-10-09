@@ -1,7 +1,7 @@
 # ZFS 
 ## 1. Определить алгоритм с наилучшим сжатием
 ### Создание пула устройств хранения данных ZFS
-``
+`
 [vagrant@lvm ~]$ sudo zpool create storage mirror sdb sdc
 [vagrant@lvm ~]$ sudo zpool add storage cache sdd sde
 [vagrant@lvm ~]$ sudo zpool add storage log mirror sdf sdg
@@ -25,5 +25,5 @@ config:
 	  sde       ONLINE       0     0     0
 
 errors: No known data errors
+`
 
-``
